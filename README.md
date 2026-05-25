@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sojo Decaran — Frontend Developer Portfolio
 
 A dark, minimal React portfolio. Built to be deployed on Vercel.
@@ -58,3 +59,7 @@ const handleSubmit = async (e) => {
   setStatus('sent');
 };
 ```
+=======
+# Portfolio
+My personal website portfolio
+>>>>>>> 1691d8cdc7b113b9a2c752e0212f935bf6fcffab
