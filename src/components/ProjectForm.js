@@ -154,11 +154,11 @@ export default function ProjectForm() {
 
     const type = platforms
       .filter((p) => p.enabled)
-      .map((p) => ({
-        label: p.label,
-        url: p.url,
-        image: p.image || undefined,
-      }));
+      .map((p) => {
+        const entry = { label: p.label, url: p.url };
+        if (p.image) entry.image = p.image;
+        return entry;
+      });
 
     const data = {
       ...form,
