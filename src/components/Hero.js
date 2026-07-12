@@ -1,8 +1,10 @@
+import { useState, useEffect } from "react";
 import useInView from "../hooks/useInView";
 import SkillPill from "./SkillPill";
+import { getBanner, getSkills } from "../lib/api";
 import "./Hero.css";
 
-const skills = [
+const fallbackSkills = [
   { name: "HTML", level: 90 },
   { name: "CSS", level: 88 },
   { name: "JavaScript", level: 85 },
@@ -15,12 +17,22 @@ const skills = [
 
 export default function Hero() {
   const [ref, inView] = useInView(0.1);
+  const [bannerText, setBannerText] = useState("Available for opportunities");
+  const [skills, setSkills] = useState(fallbackSkills);
+
+  useEffect(() => {
+    getBanner().then(setBannerText);
+    getSkills().then((s) => {
+      if (s.length > 0) setSkills(s);
+    });
+  }, []);
+
   return (
     <section id="hero" className="hero" ref={ref}>
       <div className={`hero__inner ${inView ? "fade-in" : ""}`}>
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          Available for opportunities
+          {bannerText}
         </div>
 
         <h1 className="hero__name">

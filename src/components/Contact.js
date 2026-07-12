@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import useInView from "../hooks/useInView";
+import { getContact } from "../lib/api";
 import "./Contact.css";
 
 export default function Contact() {
   const [ref, inView] = useInView(0.1);
   const [status, setStatus] = useState("idle");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [contactInfo, setContactInfo] = useState({
+    location: "Baguio City, Philippines",
+    education: "University of the Cordilleras",
+    focus: "Frontend Development",
+  });
+
+  useEffect(() => {
+    getContact().then(setContactInfo);
+  }, []);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -55,19 +65,19 @@ export default function Contact() {
               <div className="contact__info-item">
                 <span className="contact__info-label">Location</span>
                 <span className="contact__info-value">
-                  Baguio City, Philippines
+                  {contactInfo.location}
                 </span>
               </div>
               <div className="contact__info-item">
                 <span className="contact__info-label">Education</span>
                 <span className="contact__info-value">
-                  University of the Cordilleras
+                  {contactInfo.education}
                 </span>
               </div>
               <div className="contact__info-item">
                 <span className="contact__info-label">Focus</span>
                 <span className="contact__info-value">
-                  Frontend Development
+                  {contactInfo.focus}
                 </span>
               </div>
             </div>

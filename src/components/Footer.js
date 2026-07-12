@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 export default function Footer() {
@@ -35,6 +36,8 @@ export default function Footer() {
         Built with React
         <span className="footer__sep">·</span>
         Deployed on Vercel
+        <span className="footer__sep">·</span>
+        <Link to="/admin" className="footer__admin-link">⚙ Admin</Link>
       </p>
     </footer>
   );

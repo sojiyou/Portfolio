@@ -26,3 +26,10 @@
   margin: 0 0.5rem;
   opacity: 0.4;
 }
+.footer__admin-link {
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+}
+.footer__admin-link:hover {
+  color: var(--accent);
+}

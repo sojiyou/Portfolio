@@ -1,0 +1,132 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: var(--bg);
+}
+.admin-dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.admin-dashboard__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.admin-dashboard__body {
+  display: flex;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  gap: 2rem;
+}
+.admin-dashboard__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 140px;
+  flex-shrink: 0;
+}
+.admin-dashboard__tab {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+.admin-dashboard__tab:hover,
+.admin-dashboard__tab--active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+.admin-dashboard__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.editor-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.editor-section__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+.editor-section__desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+.editor-empty {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.admin-input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+  margin-bottom: 0.75rem;
+}
+.admin-input:focus {
+  border-color: rgba(78, 255, 168, 0.4);
+}
+.admin-textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: monospace;
+}
+
+.editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.editor-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+.editor-section .btn {
+  margin-top: 0.5rem;
+}
+
+.editor-skill-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.editor-skill-level {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+.editor-skill-level input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+.editor-skill-value {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  min-width: 3ch;
+  text-align: right;
+}

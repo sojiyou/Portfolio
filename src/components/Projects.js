@@ -1,10 +1,12 @@
+import { useState, useEffect } from "react";
 import useInView from "../hooks/useInView";
 import ProjectCard from "./ProjectCard";
+import { getProjects } from "../lib/api";
 import "./Projects.css";
 
-const projects = [
+const fallbackProjects = [
   {
-    id: 1,
+    id: "fallback",
     name: "Aquallera",
     tag: "Capstone Project",
     tagColor: "#4EFFA8",
@@ -28,6 +30,14 @@ const projects = [
 
 export default function Projects() {
   const [ref, inView] = useInView(0.1);
+  const [projects, setProjects] = useState(fallbackProjects);
+
+  useEffect(() => {
+    getProjects().then((p) => {
+      if (p.length > 0) setProjects(p);
+    });
+  }, []);
+
   return (
     <section id="projects" className="section" ref={ref}>
       <div className={`section__inner ${inView ? "fade-in" : ""}`}>

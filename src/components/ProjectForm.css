@@ -1,0 +1,44 @@
+.project-form {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.project-form__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.project-form__actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.project-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.project-list__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.project-list__actions {
+  display: flex;
+  gap: 0.5rem;
+}
