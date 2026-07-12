@@ -25,7 +25,7 @@ export default function AdminLogin() {
   return (
     <div className="admin-login">
       <form className="admin-login__form" onSubmit={handleSubmit}>
-        <Link to="/" className="admin-login__back">← Back to Portfolio</Link>
+        <Link to="/" className="btn btn--ghost btn--full">← Back to Portfolio</Link>
         <h1 className="admin-login__title">Admin Login</h1>
         <p className="admin-login__tagline">
           This is where Sojo updates his portfolio.

@@ -20,17 +20,6 @@
   pointer-events: none;
 }
 
-.admin-login__back {
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
-  transition: color 0.2s;
-  align-self: flex-start;
-  margin-bottom: -0.5rem;
-}
-.admin-login__back:hover {
-  color: var(--accent);
-}
-
 .admin-login__form {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -59,6 +48,7 @@
   text-align: center;
   line-height: 1.5;
   margin-top: -0.5rem;
+  font-style: italic;
 }
 
 .admin-login__field {
