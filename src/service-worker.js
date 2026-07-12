@@ -6,8 +6,6 @@ import { registerRoute, NavigationRoute } from "workbox-routing";
 
 clientsClaim();
 
-self.__WB_MANIFEST = self.__WB_MANIFEST || [];
-
 precacheAndRoute(self.__WB_MANIFEST);
 
 const handler = createHandlerBoundToURL("/index.html");
