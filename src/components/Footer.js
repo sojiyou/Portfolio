@@ -29,6 +29,29 @@ export default function Footer() {
             <circle cx="4" cy="4" r="2" />
           </svg>
         </a>
+        <a
+          href="https://www.facebook.com/sojo.decaran.ii"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__social-link"
+          aria-label="Facebook"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          </svg>
+        </a>
+        <a
+          href="https://web.telegram.org/k/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__social-link"
+          aria-label="Telegram"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21.5 2.5L2.5 9.5l7 3 3 7 9-17z" />
+            <path d="M12.5 12.5l5-5" />
+          </svg>
+        </a>
       </div>
       <p className="footer__text">
         © {new Date().getFullYear()} Sojo Sales Ansen Decaran
