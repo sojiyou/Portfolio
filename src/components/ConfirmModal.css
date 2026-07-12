@@ -36,10 +36,10 @@
 .modal-card__preview {
   max-width: 180px;
   max-height: 120px;
-  width: 100%;
   object-fit: contain;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
+  display: block;
   border: 1px solid var(--border);
 }
 .modal-card__title {
