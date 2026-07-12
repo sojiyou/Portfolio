@@ -60,7 +60,7 @@ export default function Footer() {
         <span className="footer__sep">·</span>
         Deployed on Vercel
         <span className="footer__sep">·</span>
-        <Link to="/admin" className="footer__admin-link">⚙ Admin</Link>
+        <Link to="/admin" className="footer__admin-link">Admin</Link>
       </p>
     </footer>
   );
