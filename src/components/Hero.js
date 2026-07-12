@@ -31,6 +31,9 @@ export default function Hero() {
     <section id="hero" className="hero" ref={ref}>
       <div className={`hero__inner ${inView ? "fade-in" : ""}`}>
         <div className="hero__content">
+          <div className="hero__image">
+            <img src="/sojo-corporate-attire-profile.png" alt="Sojo Decaran" />
+          </div>
           <div className="hero__badge">
             <span className="hero__badge-dot" />
             {bannerText}
@@ -78,10 +81,6 @@ export default function Hero() {
               Get in Touch
             </a>
           </div>
-        </div>
-
-        <div className="hero__image">
-          <img src="/sojo-corporate-attire-profile.png" alt="Sojo Decaran" />
         </div>
       </div>
 
