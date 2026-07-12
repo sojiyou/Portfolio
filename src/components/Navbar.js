@@ -13,7 +13,7 @@ export default function Navbar({ active }) {
   return (
     <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__links">
-        {["hero", "projects", "contact"].map((s) => (
+          {["hero", "experience", "projects", "contact"].map((s) => (
           <a
             key={s}
             href={`#${s}`}

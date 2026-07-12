@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import Experience from "../components/Experience";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -9,7 +10,7 @@ export default function PortfolioPage() {
   const [active, setActive] = useState("hero");
 
   useEffect(() => {
-    const sections = ["hero", "projects", "contact"];
+    const sections = ["hero", "experience", "projects", "contact"];
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -30,6 +31,7 @@ export default function PortfolioPage() {
       <Navbar active={active} />
       <main>
         <Hero />
+        <Experience />
         <Projects />
         <Contact />
       </main>

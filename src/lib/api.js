@@ -85,3 +85,28 @@ export async function updateProject(id, data) {
 export async function deleteProject(id) {
   await deleteDoc(doc(db, "projects", id));
 }
+
+/* ─── Experiences ──────────────────────────────────────────── */
+
+export async function getExperiences() {
+  try {
+    const snap = await getDocs(collection(db, "experiences"));
+    return snap.docs
+      .map((d) => ({ id: d.id, ...d.data() }))
+      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  } catch {
+    return [];
+  }
+}
+
+export async function addExperience(data) {
+  return await addDoc(collection(db, "experiences"), data);
+}
+
+export async function updateExperience(id, data) {
+  await updateDoc(doc(db, "experiences", id), data);
+}
+
+export async function deleteExperience(id) {
+  await deleteDoc(doc(db, "experiences", id));
+}

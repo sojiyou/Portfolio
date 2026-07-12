@@ -6,11 +6,13 @@ import BannerEditor from "./BannerEditor";
 import SkillsEditor from "./SkillsEditor";
 import ContactEditor from "./ContactEditor";
 import ProjectForm from "./ProjectForm";
+import ExperienceEditor from "./ExperienceEditor";
 import "./AdminDashboard.css";
 
 const TABS = [
   { key: "banner", label: "Banner" },
   { key: "skills", label: "Skills" },
+  { key: "experience", label: "Experience" },
   { key: "projects", label: "Projects" },
   { key: "contact", label: "Contact" },
 ];
@@ -73,6 +75,26 @@ const seedData = async () => {
     });
     await setDoc(doc(db, "settings", "_hasProjects"), { seeded: true });
   }
+
+  const expSnap = await getDoc(doc(db, "settings", "_hasExperience"));
+  if (!expSnap.exists()) {
+    await addDoc(collection(db, "experiences"), {
+      title: "Frontend Intern",
+      company: "IOL Inc.",
+      location: "Baguio City",
+      startDate: "June 2025",
+      endDate: "Present",
+      description:
+        "Working on frontend development for internal tools and client projects. Building responsive UIs with React and modern CSS.",
+      highlights: [
+        "Built reusable UI components",
+        "Integrated REST APIs",
+        "Collaborated on responsive layouts",
+      ],
+      order: 0,
+    });
+    await setDoc(doc(db, "settings", "_hasExperience"), { seeded: true });
+  }
 };
 
 export default function AdminDashboard() {
@@ -90,6 +112,8 @@ export default function AdminDashboard() {
         return <BannerEditor />;
       case "skills":
         return <SkillsEditor />;
+      case "experience":
+        return <ExperienceEditor />;
       case "projects":
         return <ProjectForm />;
       case "contact":

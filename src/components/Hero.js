@@ -1,30 +1,14 @@
 import { useState, useEffect } from "react";
 import useInView from "../hooks/useInView";
-import SkillPill from "./SkillPill";
-import { getBanner, getSkills } from "../lib/api";
+import { getBanner } from "../lib/api";
 import "./Hero.css";
-
-const fallbackSkills = [
-  { name: "HTML", level: 90 },
-  { name: "CSS", level: 88 },
-  { name: "JavaScript", level: 85 },
-  { name: "React", level: 78 },
-  { name: "Java", level: 72 },
-  { name: "Python", level: 70 },
-  { name: "Tailwind CSS", level: 40 },
-  { name: "PHP", level: 55 },
-];
 
 export default function Hero() {
   const [ref, inView] = useInView(0.1);
   const [bannerText, setBannerText] = useState("Available for opportunities");
-  const [skills, setSkills] = useState(fallbackSkills);
 
   useEffect(() => {
     getBanner().then(setBannerText);
-    getSkills().then((s) => {
-      if (s.length > 0) setSkills(s);
-    });
   }, []);
 
   return (
@@ -57,17 +41,6 @@ export default function Hero() {
                 Bachelor of Science in Information Technology
               </p>
             </div>
-          </div>
-
-          <div className="hero__skills-grid">
-            {skills.map((sk, i) => (
-              <SkillPill
-                key={sk.name}
-                skill={sk}
-                delay={i * 60}
-                visible={inView}
-              />
-            ))}
           </div>
 
           <div className="hero__cta">

@@ -122,12 +122,6 @@
   font-size: 0.78rem;
   color: var(--text-secondary);
 }
-.hero__skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 3rem;
-}
 .hero__cta {
   display: flex;
   gap: 1rem;
