@@ -6,7 +6,7 @@
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1.25rem 2.5rem;
   transition: background 0.3s, border-bottom 0.3s, backdrop-filter 0.3s;
 }
@@ -50,11 +50,8 @@
 
 /* ── Theme Toggle ── */
 .theme-toggle {
-  position: absolute;
-  right: 2.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  display: flex;
+  align-items: center;
 }
 .theme-toggle__track {
   width: 44px;
@@ -108,6 +105,4 @@
   transform: rotate(0deg) scale(1);
 }
 
-@media (max-width: 680px) {
-  .theme-toggle { right: 1.25rem; }
-}
+
