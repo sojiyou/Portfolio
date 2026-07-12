@@ -18,8 +18,12 @@ export default function ProjectCard({ project, delay, visible }) {
       onMouseLeave={() => setHovered(false)}
     >
       <div className="project-card__top">
-        {project.image && (
-          <img className="project-card__image" src={project.image} alt={project.name} />
+        {project.type.some((t) => t.image) && (
+          <div className="project-card__images">
+            {project.type.filter((t) => t.image).map((t) => (
+              <img key={t.label} className="project-card__image" src={t.image} alt={t.label} />
+            ))}
+          </div>
         )}
         <div className="project-card__meta">
           <span
