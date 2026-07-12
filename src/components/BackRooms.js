@@ -7,7 +7,7 @@ import SkillsEditor from "./SkillsEditor";
 import ContactEditor from "./ContactEditor";
 import ProjectForm from "./ProjectForm";
 import ExperienceEditor from "./ExperienceEditor";
-import "./AdminDashboard.css";
+import "./BackRooms.css";
 
 const TABS = [
   { key: "banner", label: "Banner" },
@@ -97,7 +97,7 @@ const seedData = async () => {
   }
 };
 
-export default function AdminDashboard() {
+export default function BackRooms() {
   const [seeding, setSeeding] = useState(true);
   const [activeTab, setActiveTab] = useState("banner");
   const seeded = useRef(false);
@@ -131,8 +131,11 @@ export default function AdminDashboard() {
   if (seeding) {
     return (
       <div className="admin-dashboard">
-        <div className="admin-dashboard__body" style={{ justifyContent: "center" }}>
-          <p style={{ color: "var(--text-tertiary)" }}>Setting up your admin panel…</p>
+        <div className="admin-dashboard__body" style={{ justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+          <div>
+            <img src="/favicon.svg" alt="" className="backroom-spinner" />
+            <p style={{ color: "var(--text-tertiary)", marginTop: "1rem" }}>Setting up the back room…</p>
+          </div>
         </div>
       </div>
     );
@@ -141,7 +144,7 @@ export default function AdminDashboard() {
   return (
     <div className="admin-dashboard">
       <header className="admin-dashboard__header">
-        <h1 className="admin-dashboard__title">Portfolio Admin</h1>
+        <h1 className="admin-dashboard__title">Back Room</h1>
         <button className="btn btn--ghost" onClick={handleLogout}>
           Logout
         </button>
