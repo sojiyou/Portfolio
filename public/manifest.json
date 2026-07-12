@@ -1,0 +1,22 @@
+{
+  "short_name": "Sojo Decaran",
+  "name": "Sojo Decaran — Portfolio",
+  "description": "Frontend developer portfolio by Sojo Sales Ansen Decaran",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
