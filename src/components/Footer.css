@@ -33,3 +33,14 @@
 .footer__admin-link:hover {
   color: var(--accent);
 }
+
+.footer__copy-btn.footer__copy-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+.footer__copy-btn--copied {
+  color: var(--accent) !important;
+}
