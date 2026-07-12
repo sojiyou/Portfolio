@@ -5,7 +5,34 @@
   justify-content: center;
   padding: 2rem;
   background: var(--bg);
+  position: relative;
+  overflow: hidden;
 }
+
+.admin-login::before {
+  content: '';
+  position: absolute;
+  top: -300px;
+  right: -200px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse at center, rgba(78, 255, 168, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.admin-login__back {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+  z-index: 1;
+}
+.admin-login__back:hover {
+  color: var(--accent);
+}
+
 .admin-login__form {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -16,24 +43,42 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  position: relative;
+  z-index: 1;
 }
+
+.admin-login__icon {
+  font-size: 2rem;
+  text-align: center;
+}
+
 .admin-login__title {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
   text-align: center;
-  margin-bottom: 0.5rem;
 }
+
+.admin-login__tagline {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.5;
+  margin-top: -0.5rem;
+}
+
 .admin-login__field {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
+
 .admin-login__label {
   font-size: 0.8rem;
   color: var(--text-secondary);
 }
+
 .admin-login__input {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -48,19 +93,9 @@
 .admin-login__input:focus {
   border-color: rgba(78, 255, 168, 0.4);
 }
+
 .admin-login__error {
   color: #ff6b6b;
   font-size: 0.85rem;
   text-align: center;
-}
-.admin-login__back {
-  display: block;
-  text-align: center;
-  margin-top: 1.5rem;
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
-  transition: color 0.2s;
-}
-.admin-login__back:hover {
-  color: var(--accent);
 }
