@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import PortfolioPage from "./pages/PortfolioPage";
 import AdminPage from "./pages/AdminPage";
+import "./App.css";
 
 export default function App() {
   return (
