@@ -47,6 +47,9 @@ export default function Hero() {
             <a href="#projects" className="btn btn--primary">
               View Projects
             </a>
+            <a href="#experience" className="btn btn--ghost">
+              History
+            </a>
             <a href="#contact" className="btn btn--ghost">
               Get in Touch
             </a>

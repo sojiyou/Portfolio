@@ -36,25 +36,7 @@ Vercel auto-detects React and sets the correct build command (`npm run build`) a
 
 ## Customization
 
-- **Projects** → edit the `projects` array in `src/App.js`
-- **Skills** → edit the `skills` array in `src/App.js`
-- **Contact form** → replace the `setTimeout` mock in `handleSubmit` with your real API (EmailJS, Formspree, etc.)
+- **Projects, Skills, Experiences** → managed via the `/admin` panel backed by Firebase Firestore
+- **Banner text, Contact info** → also editable from the `/admin` panel
+- **Contact form** → uses EmailJS — set `REACT_APP_EMAILJS_*` in `.env`
 - **Colors** → edit CSS variables in `src/index.css`
-
-## Adding Real Email (Formspree)
-1. Sign up at https://formspree.io
-2. Create a form, get your endpoint URL
-3. In `App.js`, replace the `handleSubmit` function with:
-
-```js
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus('sending');
-  await fetch('https://formspree.io/f/YOUR_ID', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(form),
-  });
-  setStatus('sent');
-};
-```

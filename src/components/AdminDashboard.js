@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { signOut } from "firebase/auth";
 import { doc, getDoc, setDoc, addDoc, collection } from "firebase/firestore";
 import { auth, db } from "../lib/firebase";
@@ -99,9 +99,14 @@ const seedData = async () => {
 
 export default function AdminDashboard() {
   const [seeding, setSeeding] = useState(true);
+  const [activeTab, setActiveTab] = useState("banner");
+  const seeded = useRef(false);
 
   useEffect(() => {
-    seedData().finally(() => setSeeding(false));
+    if (!seeded.current) {
+      seeded.current = true;
+      seedData().finally(() => setSeeding(false));
+    }
   }, []);
 
   const handleLogout = () => signOut(auth);
@@ -145,39 +150,18 @@ export default function AdminDashboard() {
       <div className="admin-dashboard__body">
         <nav className="admin-dashboard__tabs">
           {TABS.map((t) => (
-            <a
+            <button
               key={t.key}
-              href={`#tab-${t.key}`}
-              className="admin-dashboard__tab"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .querySelector(".admin-dashboard__tab--active")
-                  ?.classList.remove("admin-dashboard__tab--active");
-                e.currentTarget.classList.add("admin-dashboard__tab--active");
-                document.getElementById(`tab-content-${t.key}`).style.display =
-                  "block";
-                TABS.filter((x) => x.key !== t.key).forEach((x) => {
-                  const el = document.getElementById(`tab-content-${x.key}`);
-                  if (el) el.style.display = "none";
-                });
-              }}
+              className={`admin-dashboard__tab ${activeTab === t.key ? "admin-dashboard__tab--active" : ""}`}
+              onClick={() => setActiveTab(t.key)}
             >
               {t.label}
-            </a>
+            </button>
           ))}
         </nav>
 
         <div className="admin-dashboard__content">
-          {TABS.map((t) => (
-            <div
-              key={t.key}
-              id={`tab-content-${t.key}`}
-              style={{ display: t.key === "banner" ? "block" : "none" }}
-            >
-              {renderTab(t.key)}
-            </div>
-          ))}
+          {renderTab(activeTab)}
         </div>
       </div>
     </div>

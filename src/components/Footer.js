@@ -52,7 +52,7 @@ export default function Footer() {
           </svg>
         </a>
         <a
-          href="https://web.telegram.org/k/"
+          href="https://t.me/+639277263218"
           target="_blank"
           rel="noopener noreferrer"
           className="footer__social-link"
