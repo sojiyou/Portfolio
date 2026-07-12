@@ -26,6 +26,7 @@
   --accent-shadow: rgba(78, 255, 168, 0.15);
   --accent-shadow-2: rgba(78, 255, 168, 0.05);
   --focus-accent: rgba(78, 255, 168, 0.4);
+  --hero-grid-dot: rgba(78, 255, 168, 0.15);
   --switch-bg: #222;
   --switch-knob: #f5f5f0;
 }
@@ -101,6 +102,7 @@ img {
   --accent-shadow: rgba(0, 168, 107, 0.15);
   --accent-shadow-2: rgba(0, 168, 107, 0.05);
   --focus-accent: rgba(0, 168, 107, 0.4);
+  --hero-grid-dot: rgba(0, 0, 0, 0.08);
   --switch-bg: #ddd;
   --switch-knob: #fff;
 }

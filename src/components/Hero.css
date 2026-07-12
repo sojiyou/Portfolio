@@ -145,13 +145,12 @@
 .hero__grid-overlay {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(var(--hero-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
-  background-size: 60px 60px;
+  background-image: radial-gradient(circle, var(--hero-grid-dot) 1.5px, transparent 1.5px);
+  background-size: 48px 48px;
+  background-position: 24px 24px;
   pointer-events: none;
   z-index: 0;
-  mask-image: radial-gradient(ellipse 60% 60% at 80% 30%, black 0%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, black 0%, transparent 100%);
 }
 
 @media (max-width: 680px) {
