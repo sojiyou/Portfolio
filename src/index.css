@@ -73,7 +73,7 @@ img {
 
 [data-theme="light"] {
   --bg: #f5f5f0;
-  --bg-surface: #ebebе6;
+  --bg-surface: #ebebe6;
   --bg-card: #ffffff;
   --border: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.18);
