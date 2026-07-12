@@ -155,9 +155,8 @@
 
 @media (max-width: 680px) {
   .hero { padding: 6rem 1.25rem 4rem; }
-  .hero__inner { flex-direction: column-reverse; gap: 2rem; }
+  .hero__inner { flex-direction: column-reverse; gap: 2rem; align-items: center; }
   .hero__content { text-align: center; }
-  .hero__image { align-self: center; }
   .hero__image { width: 160px; }
   .hero__edu { flex-direction: column; align-items: flex-start; }
 }
