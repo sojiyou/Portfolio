@@ -21,13 +21,11 @@
 }
 
 .admin-login__back {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
   font-size: 0.85rem;
   color: var(--text-tertiary);
   transition: color 0.2s;
-  z-index: 1;
+  align-self: flex-start;
+  margin-bottom: -0.5rem;
 }
 .admin-login__back:hover {
   color: var(--accent);
