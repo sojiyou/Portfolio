@@ -91,78 +91,96 @@ export default function ExperienceEditor() {
   };
 
   return (
-    <div className="admin-tab">
-      <form className="admin-form" onSubmit={handleSubmit}>
-        <h3>{editingId ? "Edit Experience" : "Add Experience"}</h3>
+    <div className="editor-section">
+      <h2 className="editor-section__title">Experience</h2>
+      <p className="editor-section__desc">Add or edit your work experience entries.</p>
 
-        <label>Title</label>
-        <input name="title" value={form.title} onChange={handleChange} required />
+      <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
+        <div className="editor-field">
+          <label className="editor-label">Title</label>
+          <input className="admin-input" name="title" value={form.title} onChange={handleChange} required />
+        </div>
 
-        <label>Company</label>
-        <input name="company" value={form.company} onChange={handleChange} required />
+        <div className="editor-field">
+          <label className="editor-label">Company</label>
+          <input className="admin-input" name="company" value={form.company} onChange={handleChange} required />
+        </div>
 
-        <label>Location</label>
-        <input name="location" value={form.location} onChange={handleChange} placeholder="e.g. Baguio City" />
+        <div className="editor-field">
+          <label className="editor-label">Location</label>
+          <input className="admin-input" name="location" value={form.location} onChange={handleChange} placeholder="e.g. Baguio City" />
+        </div>
 
-        <div className="admin-form__row">
-          <div>
-            <label>Start Date</label>
-            <input name="startDate" value={form.startDate} onChange={handleChange} placeholder="e.g. June 2025" />
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <div className="editor-field" style={{ flex: 1 }}>
+            <label className="editor-label">Start Date</label>
+            <input className="admin-input" name="startDate" value={form.startDate} onChange={handleChange} placeholder="e.g. June 2025" />
           </div>
-          <div>
-            <label>End Date</label>
-            <input name="endDate" value={form.endDate} onChange={handleChange} placeholder="e.g. Present" />
+          <div className="editor-field" style={{ flex: 1 }}>
+            <label className="editor-label">End Date</label>
+            <input className="admin-input" name="endDate" value={form.endDate} onChange={handleChange} placeholder="e.g. Present" />
           </div>
         </div>
 
-        <label>Description</label>
-        <textarea name="description" value={form.description} onChange={handleChange} rows={3} />
-
-        <label>Highlights</label>
-        <div className="admin-form__tag-row">
-          <input
-            value={highlightInput}
-            onChange={(e) => setHighlightInput(e.target.value)}
-            onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addHighlight(); } }}
-            placeholder="Type and press Enter"
-          />
-          <button type="button" className="admin-form__add-btn" onClick={addHighlight}>Add</button>
-        </div>
-        <div className="admin-form__tags">
-          {(form.highlights || []).map((h, i) => (
-            <span key={i} className="admin-form__tag">
-              {h}
-              <button type="button" onClick={() => removeHighlight(i)}>&times;</button>
-            </span>
-          ))}
+        <div className="editor-field">
+          <label className="editor-label">Description</label>
+          <textarea className="admin-input admin-textarea" name="description" value={form.description} onChange={handleChange} rows={3} />
         </div>
 
-        <button type="submit" className="admin-form__submit">
-          {editingId ? "Update" : "Add"} Experience
-        </button>
-        {editingId && (
-          <button type="button" className="admin-form__cancel" onClick={() => { setForm({ ...empty }); setEditingId(null); }}>
-            Cancel
+        <div className="editor-field">
+          <label className="editor-label">Highlights</label>
+          <div className="add-row">
+            <input
+              className="admin-input"
+              value={highlightInput}
+              onChange={(e) => setHighlightInput(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addHighlight(); } }}
+              placeholder="Type and press Add"
+            />
+            <button type="button" className="btn btn--primary add-row__btn" onClick={addHighlight}>Add</button>
+          </div>
+          {(form.highlights || []).length > 0 && (
+            <div className="tag-list">
+              {(form.highlights || []).map((h, i) => (
+                <div key={i} className="tag-list__item">
+                  <span className="tag-list__label">{h}</span>
+                  <button type="button" className="tag-list__remove" onClick={() => removeHighlight(i)}>✕</button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="project-form__actions">
+          {editingId && (
+            <button type="button" className="btn btn--ghost" onClick={() => { setForm({ ...empty }); setEditingId(null); }}>
+              Cancel
+            </button>
+          )}
+          <button type="submit" className="btn btn--primary">
+            {editingId ? "Update" : "Add"} Experience
           </button>
-        )}
+        </div>
       </form>
 
-      <div className="admin-list">
+      <div className="project-list">
+        {list.length === 0 && <p className="editor-empty">No experiences yet.</p>}
         {list.map((exp, idx) => (
-          <div key={exp.id} className="admin-list__item">
-            <div className="admin-list__info">
-              <strong>{exp.title}</strong> at {exp.company}
-              <span className="admin-list__meta">{exp.startDate}{exp.endDate ? ` — ${exp.endDate}` : ""}</span>
+          <div key={exp.id} className="project-list__item">
+            <div className="project-list__info">
+              <strong>{exp.title}</strong>
+              <span style={{ color: "var(--text-tertiary)", fontSize: "0.8rem" }}>
+                {exp.company}{exp.location ? ` · ${exp.location}` : ""} · {exp.startDate}{exp.endDate ? ` — ${exp.endDate}` : ""}
+              </span>
             </div>
-            <div className="admin-list__actions">
-              <button onClick={() => moveUp(idx)} disabled={idx === 0} title="Move up">&uarr;</button>
-              <button onClick={() => moveDown(idx)} disabled={idx >= list.length - 1} title="Move down">&darr;</button>
-              <button onClick={() => handleEdit(exp)}>Edit</button>
-              <button className="admin-list__del" onClick={() => handleDelete(exp.id)}>Delete</button>
+            <div className="project-list__actions">
+              <button className="btn btn--ghost" onClick={() => moveUp(idx)} disabled={idx === 0} title="Move up">&uarr;</button>
+              <button className="btn btn--ghost" onClick={() => moveDown(idx)} disabled={idx >= list.length - 1} title="Move down">&darr;</button>
+              <button className="btn btn--ghost" onClick={() => handleEdit(exp)}>Edit</button>
+              <button className="btn btn--ghost" style={{ color: "#ff6b6b" }} onClick={() => handleDelete(exp.id)}>Delete</button>
             </div>
           </div>
         ))}
-        {list.length === 0 && <p className="admin-list__empty">No experiences yet.</p>}
       </div>
 
       {confirm && <ConfirmModal message={confirm.message} onConfirm={confirmDelete} onCancel={() => setConfirm(null)} />}
