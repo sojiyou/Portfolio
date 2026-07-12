@@ -45,7 +45,7 @@ export default function SkillsEditor() {
         <div key={i} className="editor-skill-row">
           <input
             className="admin-input"
-            style={{ width: 180, flexShrink: 0 }}
+            style={{ maxWidth: 180, width: "100%", flexShrink: 0 }}
             type="text"
             value={sk.name}
             onChange={(e) => update(i, "name", e.target.value)}
