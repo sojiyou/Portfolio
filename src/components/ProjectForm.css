@@ -125,7 +125,7 @@
   font-size: 0.78rem;
   color: var(--accent);
   background: var(--accent-dim2);
-  border: 1px solid rgba(78, 255, 168, 0.15);
+  border: 1px solid var(--accent-shadow);
   padding: 4px 10px;
   border-radius: 999px;
   cursor: pointer;

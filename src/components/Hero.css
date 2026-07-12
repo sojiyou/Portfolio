@@ -34,7 +34,7 @@
   height: auto;
   border-radius: 50%;
   border: 3px solid var(--accent);
-  box-shadow: 0 0 40px rgba(78, 255, 168, 0.15), 0 0 80px rgba(78, 255, 168, 0.05);
+  box-shadow: 0 0 40px var(--accent-shadow), 0 0 80px var(--accent-shadow-2);
 }
 .hero__badge {
   display: inline-flex;
@@ -45,7 +45,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 2rem;
-  border: 1px solid rgba(78, 255, 168, 0.2);
+  border: 1px solid var(--accent-border);
   padding: 6px 14px;
   border-radius: 999px;
 }
@@ -138,7 +138,7 @@
   right: -200px;
   width: 700px;
   height: 700px;
-  background: radial-gradient(ellipse at center, rgba(78, 255, 168, 0.04) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, var(--hero-glow) 0%, transparent 70%);
   pointer-events: none;
   z-index: 1;
 }
@@ -146,8 +146,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    linear-gradient(var(--hero-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   z-index: 0;

@@ -7,7 +7,7 @@
   margin-bottom: 1.5rem;
 }
 .project-card--hovered {
-  border-color: rgba(78, 255, 168, 0.2);
+  border-color: var(--accent-border);
   transform: translateY(-2px) !important;
 }
 .project-card__top {
@@ -95,7 +95,7 @@
   font-weight: 500;
   color: var(--accent);
   background: var(--accent-dim2);
-  border: 1px solid rgba(78, 255, 168, 0.15);
+  border: 1px solid var(--accent-shadow);
   padding: 3px 10px;
   border-radius: 999px;
   cursor: pointer;

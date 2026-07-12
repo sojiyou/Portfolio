@@ -86,7 +86,7 @@
   margin-bottom: 0.75rem;
 }
 .admin-input:focus {
-  border-color: rgba(78, 255, 168, 0.4);
+  border-color: var(--focus-accent);
 }
 .admin-textarea {
   resize: vertical;

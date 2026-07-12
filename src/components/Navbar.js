@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 import "./Navbar.css";
 
 export default function Navbar({ active }) {
@@ -22,6 +23,7 @@ export default function Navbar({ active }) {
           </a>
         ))}
       </div>
+      <ThemeToggle />
     </nav>
   );
 }

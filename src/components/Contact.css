@@ -58,7 +58,7 @@
   width: 100%;
 }
 .contact__input:focus {
-  border-color: rgba(78, 255, 168, 0.4);
+  border-color: var(--focus-accent);
 }
 .contact__input::placeholder { color: var(--text-tertiary); }
 .contact__textarea { resize: vertical; min-height: 120px; }
@@ -71,7 +71,7 @@
   padding: 3rem;
   text-align: center;
   color: var(--accent);
-  border: 1px solid rgba(78, 255, 168, 0.2);
+  border: 1px solid var(--accent-border);
   border-radius: 12px;
 }
 .contact__success-icon {

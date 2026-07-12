@@ -11,7 +11,7 @@
   transition: background 0.3s, border-bottom 0.3s, backdrop-filter 0.3s;
 }
 .navbar--scrolled {
-  background: rgba(8, 8, 8, 0.85);
+  background: var(--navbar-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
@@ -46,4 +46,68 @@
 @media (max-width: 680px) {
   .navbar { padding: 1rem 1.25rem; }
   .navbar__links { gap: 1.25rem; }
+}
+
+/* ── Theme Toggle ── */
+.theme-toggle {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.theme-toggle__track {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--switch-bg);
+  position: relative;
+  transition: background 0.3s;
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+.theme-toggle__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--switch-knob);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55), background 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.theme-toggle--light .theme-toggle__knob {
+  transform: translateX(20px);
+}
+.theme-toggle__icon {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  transition: opacity 0.25s, transform 0.35s;
+}
+.theme-toggle__sun {
+  color: #f59e0b;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.theme-toggle--light .theme-toggle__sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+.theme-toggle__moon {
+  color: #6366f1;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+.theme-toggle--light .theme-toggle__moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+@media (max-width: 680px) {
+  .theme-toggle { right: 1.25rem; }
 }

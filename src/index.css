@@ -18,6 +18,16 @@
   --text-tertiary: #444440;
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
+  --bg-float: rgba(255, 255, 255, 0.03);
+  --navbar-bg: rgba(8, 8, 8, 0.85);
+  --hero-glow: rgba(78, 255, 168, 0.04);
+  --hero-grid: rgba(255, 255, 255, 0.02);
+  --accent-border: rgba(78, 255, 168, 0.2);
+  --accent-shadow: rgba(78, 255, 168, 0.15);
+  --accent-shadow-2: rgba(78, 255, 168, 0.05);
+  --focus-accent: rgba(78, 255, 168, 0.4);
+  --switch-bg: #222;
+  --switch-knob: #f5f5f0;
 }
 
 html {
@@ -83,4 +93,14 @@ img {
   --text-primary: #0a0a0a;
   --text-secondary: #555550;
   --text-tertiary: #aaaaaa;
+  --bg-float: rgba(0, 0, 0, 0.03);
+  --navbar-bg: rgba(245, 245, 240, 0.85);
+  --hero-glow: rgba(0, 168, 107, 0.05);
+  --hero-grid: rgba(0, 0, 0, 0.02);
+  --accent-border: rgba(0, 168, 107, 0.2);
+  --accent-shadow: rgba(0, 168, 107, 0.15);
+  --accent-shadow-2: rgba(0, 168, 107, 0.05);
+  --focus-accent: rgba(0, 168, 107, 0.4);
+  --switch-bg: #ddd;
+  --switch-knob: #fff;
 }
