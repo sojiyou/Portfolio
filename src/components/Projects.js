@@ -19,11 +19,11 @@ const projects = [
       "Baguio City coverage",
     ],
     tech: ["React", "JavaScript", "CSS", "Maps API"],
+    image: "/aquallera-web.png",
     type: [
-      { label: "Web App", url: "https://aquallera-website.vercel.app" },
-      { label: "Mobile App", url: "https://aquallera-pwa.vercel.app" },
+      { label: "Web App", url: "https://aquallera-website.vercel.app", image: "/aquallera-web.png" },
+      { label: "Mobile App", url: "https://aquallera-pwa.vercel.app", image: "/aquallera-pwa.png" },
     ],
-    emoji: null,
   },
 ];
 

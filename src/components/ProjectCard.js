@@ -18,8 +18,8 @@ export default function ProjectCard({ project, delay, visible }) {
       onMouseLeave={() => setHovered(false)}
     >
       <div className="project-card__top">
-        {project.emoji && (
-          <div className="project-card__emoji">{project.emoji}</div>
+        {project.image && (
+          <img className="project-card__image" src={project.image} alt={project.name} />
         )}
         <div className="project-card__meta">
           <span
@@ -77,6 +77,7 @@ export default function ProjectCard({ project, delay, visible }) {
         <ConfirmModal
           label={modal.label}
           url={modal.url}
+          image={modal.image}
           onConfirm={() => {
             window.open(modal.url, "_blank", "noopener,noreferrer");
             setModal(null);

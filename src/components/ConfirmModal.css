@@ -33,6 +33,14 @@
   font-size: 2rem;
   margin-bottom: 0.75rem;
 }
+.modal-card__preview {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+}
 .modal-card__title {
   font-family: var(--font-display);
   font-size: 1.2rem;
