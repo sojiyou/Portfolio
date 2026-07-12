@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
-import AdminLogin from "../components/AdminLogin";
+import BackRoomLogin from "../components/BackRoomLogin";
 import BackRooms from "../components/BackRooms";
 
 export default function AdminPage() {
@@ -24,5 +24,5 @@ export default function AdminPage() {
     );
   }
 
-  return user ? <BackRooms /> : <AdminLogin />;
+  return user ? <BackRooms /> : <BackRoomLogin />;
 }
