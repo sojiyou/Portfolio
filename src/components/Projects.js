@@ -18,7 +18,7 @@ const projects = [
       "Price comparison across stations",
       "Baguio City coverage",
     ],
-    tech: ["React", "JavaScript", "CSS", "Maps API"],
+    tech: ["React", "JavaScript", "CSS", "Mapbox", "Firebase", "EmailJS"],
     type: [
       { label: "Mobile App", url: "https://aquallera-pwa.vercel.app", image: "/aquallera-pwa.png" },
       { label: "Web App", url: "https://aquallera-website.vercel.app", image: "/aquallera-web.png" },
