@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import "./AdminLogin.css";
@@ -57,7 +58,8 @@ export default function AdminLogin() {
         >
           {loading ? "Signing in…" : "Sign In"}
         </button>
-      </form>
+        </form>
+        <Link to="/" className="admin-login__back">← Back to Portfolio</Link>
     </div>
   );
 }

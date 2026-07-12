@@ -53,3 +53,14 @@
   font-size: 0.85rem;
   text-align: center;
 }
+.admin-login__back {
+  display: block;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+}
+.admin-login__back:hover {
+  color: var(--accent);
+}
