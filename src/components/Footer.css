@@ -1,0 +1,28 @@
+.footer {
+  padding: 2rem 2.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+.footer__social-link {
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+.footer__social-link:hover {
+  color: var(--accent);
+}
+.footer__text {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+.footer__sep {
+  margin: 0 0.5rem;
+  opacity: 0.4;
+}

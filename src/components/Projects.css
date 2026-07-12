@@ -1,0 +1,17 @@
+.more-projects {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.more-projects__text {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  font-style: italic;
+}
+.more-projects__line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}

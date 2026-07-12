@@ -1,0 +1,32 @@
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px 6px 12px;
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s;
+  min-width: 130px;
+}
+.skill-pill:hover { border-color: var(--border-hover); }
+.skill-pill__name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.skill-pill__bar-track {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.skill-pill__bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
