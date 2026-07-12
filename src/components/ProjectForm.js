@@ -4,6 +4,15 @@ import "./ProjectForm.css";
 
 const PLATFORM_OPTIONS = ["Web App", "Mobile App", "PWA"];
 
+const TECH_SUGGESTIONS = [
+  "React", "Vue", "Angular", "Next.js", "Node.js", "Express",
+  "Python", "Django", "Java", "Spring Boot", "PHP", "Laravel",
+  "JavaScript", "TypeScript", "HTML", "CSS", "Tailwind CSS", "SASS",
+  "Firebase", "MongoDB", "PostgreSQL", "MySQL", "GraphQL",
+  "REST API", "Mapbox", "Google Maps", "EmailJS", "Stripe",
+  "Git", "Docker", "AWS", "Vercel", "Netlify", "Figma",
+];
+
 const emptyPlatforms = () =>
   PLATFORM_OPTIONS.map((label) => ({
     label,
@@ -30,6 +39,9 @@ export default function ProjectForm() {
   const [platforms, setPlatforms] = useState(emptyPlatforms());
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+
+  const [featureInput, setFeatureInput] = useState("");
+  const [techInput, setTechInput] = useState("");
 
   useEffect(() => {
     getProjects().then(setProjects);
@@ -94,6 +106,46 @@ export default function ProjectForm() {
     );
   };
 
+  /* Features */
+  const addFeature = () => {
+    const val = featureInput.trim();
+    if (!val) return;
+    if (form.highlights.includes(val)) return;
+    setForm((prev) => ({ ...prev, highlights: [...prev.highlights, val] }));
+    setFeatureInput("");
+  };
+
+  const removeFeature = (index) => {
+    setForm((prev) => ({
+      ...prev,
+      highlights: prev.highlights.filter((_, i) => i !== index),
+    }));
+  };
+
+  /* Tech */
+  const addTech = (val) => {
+    const v = (val || techInput).trim();
+    if (!v) return;
+    if (form.tech.includes(v)) return;
+    setForm((prev) => ({ ...prev, tech: [...prev.tech, v] }));
+    setTechInput("");
+  };
+
+  const removeTech = (index) => {
+    setForm((prev) => ({
+      ...prev,
+      tech: prev.tech.filter((_, i) => i !== index),
+    }));
+  };
+
+  const filteredSuggestions = techInput.trim()
+    ? TECH_SUGGESTIONS.filter(
+        (s) =>
+          s.toLowerCase().includes(techInput.toLowerCase()) &&
+          !form.tech.includes(s),
+      )
+    : [];
+
   const handleSave = async () => {
     if (!form.name.trim()) {
       setError("Project name is required.");
@@ -128,7 +180,7 @@ export default function ProjectForm() {
       refresh();
     } catch (err) {
       console.error("Save error:", err);
-      setError("Failed to save. Check console for details.");
+      setError(err.message || "Failed to save. Check console for details.");
       setSaving(false);
     }
   };
@@ -158,6 +210,7 @@ export default function ProjectForm() {
             {editing === "new" ? "New Project" : "Edit Project"}
           </h3>
 
+          {/* Name */}
           <div className="editor-field">
             <label className="editor-label">Project Name</label>
             <input
@@ -169,6 +222,7 @@ export default function ProjectForm() {
             />
           </div>
 
+          {/* Category + Year */}
           <div className="project-form__row">
             <div className="editor-field" style={{ flex: 1 }}>
               <label className="editor-label">Category</label>
@@ -192,6 +246,7 @@ export default function ProjectForm() {
             </div>
           </div>
 
+          {/* Description */}
           <div className="editor-field">
             <label className="editor-label">Description</label>
             <textarea
@@ -203,19 +258,43 @@ export default function ProjectForm() {
             />
           </div>
 
+          {/* Features */}
           <div className="editor-field">
-            <label className="editor-label">Features (one per line)</label>
-            <textarea
-              className="admin-input admin-textarea"
-              rows={4}
-              value={form.highlights.join("\n")}
-              onChange={(e) =>
-                handleChange("highlights", e.target.value.split("\n"))
-              }
-              placeholder="Interactive map integration&#10;Delivery scheduling system&#10;Real-time order management"
-            />
+            <label className="editor-label">Features</label>
+            <div className="add-row">
+              <input
+                className="admin-input"
+                type="text"
+                value={featureInput}
+                onChange={(e) => setFeatureInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") { e.preventDefault(); addFeature(); }
+                }}
+                placeholder="Type a feature and press Add"
+              />
+              <button className="btn btn--primary add-row__btn" onClick={addFeature}>
+                Add
+              </button>
+            </div>
+            {form.highlights.length > 0 && (
+              <div className="tag-list">
+                {form.highlights.map((h, i) => (
+                  <div key={i} className="tag-list__item">
+                    <span className="tag-list__label">{h}</span>
+                    <button
+                      className="tag-list__remove"
+                      onClick={() => removeFeature(i)}
+                      aria-label="Remove"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
+          {/* Platforms */}
           <div className="editor-field">
             <label className="editor-label">Platforms</label>
             {platforms.map((p, i) => (
@@ -254,20 +333,53 @@ export default function ProjectForm() {
             ))}
           </div>
 
+          {/* Tech Stack */}
           <div className="editor-field">
-            <label className="editor-label">Tech Stack (comma-separated)</label>
-            <input
-              className="admin-input"
-              type="text"
-              value={form.tech.join(", ")}
-              onChange={(e) =>
-                handleChange(
-                  "tech",
-                  e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
-                )
-              }
-              placeholder="React, JavaScript, CSS, Mapbox"
-            />
+            <label className="editor-label">Tech Stack</label>
+            <div className="add-row">
+              <input
+                className="admin-input"
+                type="text"
+                value={techInput}
+                onChange={(e) => setTechInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") { e.preventDefault(); addTech(); }
+                }}
+                placeholder="Type a technology and press Add"
+              />
+              <button className="btn btn--primary add-row__btn" onClick={() => addTech()}>
+                Add
+              </button>
+            </div>
+            {form.tech.length > 0 && (
+              <div className="tag-list">
+                {form.tech.map((t, i) => (
+                  <div key={i} className="tag-list__item">
+                    <span className="tag-list__label">{t}</span>
+                    <button
+                      className="tag-list__remove"
+                      onClick={() => removeTech(i)}
+                      aria-label="Remove"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+            {filteredSuggestions.length > 0 && (
+              <div className="suggestions">
+                {filteredSuggestions.slice(0, 8).map((s) => (
+                  <button
+                    key={s}
+                    className="suggestions__pill"
+                    onClick={() => addTech(s)}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {error && <p className="project-form__error">{error}</p>}
