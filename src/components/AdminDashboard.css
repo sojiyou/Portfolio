@@ -156,6 +156,10 @@
     padding: 1rem;
   }
   .editor-skill-row {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .editor-skill-level {
+    width: 100%;
   }
 }
